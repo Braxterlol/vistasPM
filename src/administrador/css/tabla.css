@@ -1,0 +1,20 @@
+.table-container {
+    display: table;
+    width: 100%;
+  }
+  
+  .tabla {
+    display: table;
+    width: 100%;
+  }
+  
+  .fila {
+    display: table-row;
+  }
+  
+  .celda {
+    display: table-cell;
+    padding: 8px;
+    border: 1px solid #ddd; /* Añade bordes para simular una tabla */
+  }
+  

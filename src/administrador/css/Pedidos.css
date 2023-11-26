@@ -1,0 +1,63 @@
+.contenedor_principal {
+  text-align: center; /* Para centrar el contenido en el contenedor principal */
+}
+
+.contenedor_secun {
+  display: flex; /* Utilizamos flexbox para alinear los títulos horizontalmente */
+  justify-content: space-between; /* Espaciado uniforme entre los títulos */
+  align-items: center; /* Para alinear verticalmente los títulos en el centro del contenedor */
+  margin-top: 20px; /* Margen superior para separarlos del título principal */
+  margin-left: 15px; /* Margen izquierdo para la separación a la izquierda */
+  margin-right: 15px; /* Margen derecho para la separación a la derecha */
+  margin-bottom: 30px;
+  background-color: #101066;
+  color: #ffffff;
+  height: 90px;
+}
+
+.Titulo {
+  /* Añade margen a los lados de los títulos para separarlos de los bordes */
+  margin: 0 20px; /* 10px de margen a la izquierda y derecha de cada título */
+  /* Agrega estilos personalizados para los títulos aquí si lo deseas */
+}
+
+
+.product-thumb{
+  height: 150;
+  width: 130px;
+}
+.Titulo1 {
+  align-content: center;
+ margin-top: 40px;
+ margin-bottom: 15px;
+}
+
+.card-btn {
+font-size: 20px;
+margin-left: 20px;
+border-radius: 10px;
+
+padding: 10px 20px;
+background-color: #751313;
+border: none;
+color: rgb(255, 255, 255);
+cursor: pointer;
+transition: background-color 0.3s, color 0.3s;
+margin-bottom: 20px;
+}
+.card-verd {
+font-size: 20px;
+margin-left: 20px;
+border-radius: 10px;
+
+padding: 10px 20px;
+background-color: #10662d;
+border: none;
+color: rgb(255, 255, 255);
+cursor: pointer;
+transition: background-color 0.3s, color 0.3s;
+margin-bottom: 20px;
+}
+.central{
+  align-content: center;
+}
