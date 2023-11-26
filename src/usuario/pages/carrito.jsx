@@ -42,18 +42,16 @@ function Carrito({ carrito, txtIdioma, setCarrito }) {
   const handleAceptar = async () => {
     try {
       const total = carrito.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-
+  
       const nuevoPedido = {
         fecha: new Date(),
-        estado: 'pendiente',  
+        estado: 'pendiente',
         detalles: carrito.map(item => ({
-          PedidoID: null, // Deberías asignar el ID del pedido después de crearlo
-          ProductoID: item.id,
+          ProductoID: parseInt(item.id.split('_')[1]),
           cantidad: item.quantity,
           precio_unitario: item.price,
         })),
       };
-      console.log(nuevoPedido);
   
       const responsePedido = await fetch('http://localhost:4000/pedidos', {
         method: 'POST',
@@ -69,34 +67,13 @@ function Carrito({ carrito, txtIdioma, setCarrito }) {
   
       const pedidoCreado = await responsePedido.json();
   
-      for (const item of carrito) {
-        const detallePedido = {
-          PedidoID: pedidoCreado.id,
-          ProductoID: parseInt(item.id),  
-          cantidad: item.quantity,
-          precio_unitario: item.price,
-        };
-  
-        const responseDetalle = await fetch('http://localhost:4000/detallePedidos', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(detallePedido),
-        });
-  
-        if (!responseDetalle.ok) {
-          throw new Error('Error al crear el detalle del pedido');
-        }
-      }
-  
       setCarrito([]);
   
       Swal.fire({
         icon: 'success',
         title: '¡Pedido aceptado!',
         text: 'Gracias por tu compra.',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
       });
     } catch (error) {
       console.error('Error al procesar el pedido:', error);
@@ -104,10 +81,11 @@ function Carrito({ carrito, txtIdioma, setCarrito }) {
         icon: 'error',
         title: '¡Error!',
         text: 'Ocurrió un error al procesar el pedido.',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
       });
     }
   };
+  
 
   return (
     <div className="carrito-container">
